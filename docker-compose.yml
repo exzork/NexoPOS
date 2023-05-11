@@ -1,0 +1,15 @@
+version: "3"
+services:
+    NexoPOS:
+        container_name: nexopos
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            - 8081:80
+        volumes:
+            - ./:/var/www
+            - ./public:/var/www/html:rw
+            - ./storage:/var/www/storage:rw
+            - /var/www/vendor
